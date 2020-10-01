@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "target": "es5",
+        "declaration": false,
+        "sourceMap": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "downlevelIteration": true,
+        "experimentalDecorators": true
+    },
+    "exclude": [
+      "node_modules",
+      "dist"
+    ],
+      "paths": {
+          "@tyframe/core": ["core/src"],
+          "@tyframe/example": ["example/src"],
+          "@tyframe/*": ["*/src"]
+      }
+  }

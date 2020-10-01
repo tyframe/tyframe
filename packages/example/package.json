@@ -1,0 +1,28 @@
+{
+  "name": "@tyframe/example",
+  "version": "0.0.0",
+  "main": "dist/index",
+  "types": "dist/index",
+  "author": "GagaMen <12294922+GagaMen@users.noreply.github.com>",
+  "homepage": "https://github.com/tyframe/tyframe/tree/master/packages/core#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyframe/tyframe.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/tyframe/tyframe/issues"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "webpack --config webpack.config.js"
+  },
+  "dependencies": {
+    "@tyframe/core": "^0.0.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.5.0"
+  }
+}

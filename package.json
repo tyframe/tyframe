@@ -1,0 +1,28 @@
+{
+  "name": "tyframe",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyframe/tyframe.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "GagaMen <12294922+GagaMen@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tyframe/tyframe/issues"
+  },
+  "homepage": "https://github.com/tyframe/tyframe#readme",
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "terser-webpack-plugin": "^4.2.2",
+    "ts-loader": "^8.0.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.1.4"
+  },
+  "dependencies": {
+    "typescript": "^4.0.3"
+  }
+}
