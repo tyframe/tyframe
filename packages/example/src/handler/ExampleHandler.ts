@@ -1,6 +1,4 @@
-import { ExampleService } from './../service/ExampleService';
-import { Event } from './../../../core/src/decorator/event';
-import { AbstractHandler } from './../../../core/src/handler/abstract-handler';
+import { Event, AbstractHandler } from '@tyframe/core';
 
 @Event([
     {
@@ -19,8 +17,5 @@ import { AbstractHandler } from './../../../core/src/handler/abstract-handler';
 export class ExampleHandler extends AbstractHandler {
     handle(event: Event): void {
         console.log(event.target);
-
-        const service = this.getServiceByType(ExampleService) as ExampleService;
-        service.test();
     }
 }

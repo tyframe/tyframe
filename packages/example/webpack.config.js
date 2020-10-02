@@ -1,7 +1,8 @@
 const path = require('path');
 const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const basic = require('../../webpack.config');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = merge(basic, {
     entry: './src/index.ts',
@@ -23,5 +24,6 @@ module.exports = merge(basic, {
                 </html>
             `
         }),
+        new TsconfigPathsPlugin(),
       ]
 });

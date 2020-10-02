@@ -2,21 +2,27 @@
     "compilerOptions": {
         "module": "es6",
         "target": "es5",
-        "declaration": false,
+        "moduleResolution": "Node",
+        "declaration": true,
         "sourceMap": true,
         "strict": true,
         "noImplicitAny": true,
         "strictNullChecks": true,
         "downlevelIteration": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+
+        "baseUrl": "packages",
+        "paths": {
+            "@tyframe/core": ["core/src"],
+            "@tyframe/example": ["example/src"],
+            "@tyframe/*": ["*/src"]
+        }
     },
-    "exclude": [
-      "node_modules",
-      "dist"
+    "include": [
+        "packages/**/*",
     ],
-      "paths": {
-          "@tyframe/core": ["core/src"],
-          "@tyframe/example": ["example/src"],
-          "@tyframe/*": ["*/src"]
-      }
+    "exclude": [
+      "node_modules"
+    ],
   }

@@ -1,6 +1,7 @@
 export * from './core/abstract-application';
 
 export * from './decorator/application';
+export * from './decorator/event';
 
 export * from './handler/abstract-handler';
 
