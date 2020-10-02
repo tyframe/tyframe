@@ -1,6 +1,6 @@
 {
   "name": "@tyframe/example",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "keywords": [
     "typescript",
     "web",
@@ -25,7 +25,7 @@
     "compile": "webpack --config webpack.config.js"
   },
   "dependencies": {
-    "@tyframe/core": "^0.0.0"
+    "@tyframe/core": "^0.0.1"
   },
   "devDependencies": {
     "html-webpack-plugin": "^4.5.0"
