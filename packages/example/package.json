@@ -1,6 +1,11 @@
 {
   "name": "@tyframe/example",
   "version": "0.0.0",
+  "keywords": [
+    "typescript",
+    "web",
+    "framework"
+  ],
   "main": "dist/index",
   "types": "dist/index",
   "author": "GagaMen <12294922+GagaMen@users.noreply.github.com>",

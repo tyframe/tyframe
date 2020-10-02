@@ -1,12 +1,14 @@
 {
   "name": "tyframe",
-  "description": "",
+  "description": "Basic web framework written in typescript",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tyframe/tyframe.git"
   },
   "keywords": [
-    "typescript"
+    "typescript",
+    "web",
+    "framework"
   ],
   "author": "GagaMen <12294922+GagaMen@users.noreply.github.com>",
   "license": "MIT",
