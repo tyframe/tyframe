@@ -6,8 +6,7 @@
     "web",
     "framework"
   ],
-  "main": "dist/index",
-  "types": "dist/index",
+  "main": "dist/index.js",
   "author": "GagaMen <12294922+GagaMen@users.noreply.github.com>",
   "homepage": "https://github.com/tyframe/tyframe/tree/master/packages/core#readme",
   "license": "MIT",
@@ -25,7 +24,12 @@
     "compile": "webpack --config webpack.config.js"
   },
   "devDependencies": {
-    "typescript": "^4.0.3"
+    "terser-webpack-plugin": "^4.2.2",
+    "ts-loader": "^8.0.4",
+    "typescript": "^4.0.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.1.4"
   },
   "publishConfig": {
     "access": "public"

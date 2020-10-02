@@ -5,7 +5,7 @@ const basic = require('../../webpack.config');
 module.exports = merge(basic, {
     entry: './src/index.ts',
     output: {
-        filename: 'example.js',
+        filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
       },
 });
