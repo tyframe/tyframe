@@ -2,7 +2,6 @@
     "compilerOptions": {
         "module": "es6",
         "target": "es5",
-        "moduleResolution": "Node",
         "declaration": true,
         "sourceMap": true,
         "strict": true,

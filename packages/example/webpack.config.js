@@ -24,6 +24,8 @@ module.exports = merge(basic, {
                 </html>
             `
         }),
-        new TsconfigPathsPlugin(),
-      ]
+      ],
+      resolve: {
+        plugins: [new TsconfigPathsPlugin()]
+      }
 });
