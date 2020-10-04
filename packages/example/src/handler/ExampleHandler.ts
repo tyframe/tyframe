@@ -1,4 +1,4 @@
-import { Event, AbstractHandler } from '@tyframe/core';
+import { Event, Handler } from '@tyframe/core';
 
 @Event([
     {
@@ -14,7 +14,7 @@ import { Event, AbstractHandler } from '@tyframe/core';
         types: ['click', 'touch'],
     },
 ])
-export class ExampleHandler extends AbstractHandler {
+export class ExampleHandler extends Handler {
     handle(event: Event): void {
         console.log(event.target);
     }

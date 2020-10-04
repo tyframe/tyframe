@@ -1,4 +1,3 @@
-import { Handler } from './../interface/handler';
 import { constructor, genericConstructor } from './../type/constructor';
 import { EventConfig } from './../interface/event-config';
 

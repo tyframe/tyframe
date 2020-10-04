@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export type constructor = {
-    new (...args: any[]): {};
+    new (...args: any[]): any;
 };
 
 export type genericConstructor<T> = {

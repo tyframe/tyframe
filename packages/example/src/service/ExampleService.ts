@@ -5,7 +5,7 @@ export class ExampleService implements Service {
         console.log('Example service initialized');
     }
 
-    test() {
+    test(): void {
         console.log('run method test');
     }
 }

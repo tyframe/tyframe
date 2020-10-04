@@ -2,7 +2,7 @@ import { EventConfig } from './../interface/event-config';
 import { Handler } from './../interface/handler';
 import { constructor, genericConstructor } from "../type/constructor";
 import { ApplicationConfig } from "../interface/application-config";
-import { Service } from '../interface/Service';
+import { Service } from '../interface/service';
 
 export const Application = (config: ApplicationConfig): (<T>(target: genericConstructor<T>) => void) => {
     return <T extends constructor>(target: T) => {

@@ -12,8 +12,7 @@ export class App extends AbstractApplication {
 
         console.log('Application initialized.'); 
     }
-
-    run() {
+    run(): void {
         console.log('run');
     }
 }

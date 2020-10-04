@@ -1,1 +1,1 @@
-export interface Service {}
+export abstract class Service {}

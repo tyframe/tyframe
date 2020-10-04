@@ -16,7 +16,14 @@
     "url": "https://github.com/tyframe/tyframe/issues"
   },
   "homepage": "https://github.com/tyframe/tyframe#readme",
+  "scripts": {
+    "eslint": "eslint . --ignore-path .gitignore --ext .ts"
+  },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-plugin-import": "^2.22.1",
     "lerna": "^3.22.1",
     "terser-webpack-plugin": "^4.2.2",
     "ts-loader": "^8.0.4",
