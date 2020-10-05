@@ -1,4 +1,4 @@
-import { Application, AbstractApplication } from '@tyframe/core';
+import { Application, AbstractApplication } from "@tyframe/core";
 
 @Application({
     services: [

@@ -16,7 +16,9 @@
     "url": "https://github.com/tyframe/tyframe/issues"
   },
   "homepage": "https://github.com/tyframe/tyframe#readme",
+  "private": true,
   "scripts": {
+    "bootstrap": "npm install && lerna bootstrap",
     "eslint": "eslint . --ignore-path .gitignore --ext .ts"
   },
   "devDependencies": {

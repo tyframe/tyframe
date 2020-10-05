@@ -1,27 +1,13 @@
 {
-    "compilerOptions": {
-        "module": "es6",
-        "target": "es5",
-        "declaration": true,
-        "sourceMap": true,
-        "strict": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
+    "extends": "./tsconfig.build.json",
 
-        "baseUrl": "packages",
+    "compilerOptions": {
+        "experimentalDecorators": true,
+
+        "baseUrl": ".",
         "paths": {
-            "@tyframe/core": ["core/src"],
-            "@tyframe/example": ["example/src"],
-            "@tyframe/*": ["*/src"]
-        }
-    },
-    "include": [
-        "packages/**/*",
-    ],
-    "exclude": [
-      "node_modules"
-    ],
-  }
+            "@tyframe/*": ["packages/*/src"]
+        },
+        "types": []
+    }
+}
