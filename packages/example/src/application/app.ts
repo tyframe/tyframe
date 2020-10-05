@@ -1,16 +1,14 @@
-import { Application, AbstractApplication } from "@tyframe/core";
+import { Application, AbstractApplication } from '@tyframe/core';
 
 @Application({
-    services: [
-    ],
-    handlers: [
-    ],
+    services: [],
+    handlers: [],
 })
 export class App extends AbstractApplication {
     constructor() {
         super();
 
-        console.log('Application initialized.'); 
+        console.log('Application initialized.');
     }
     run(): void {
         console.log('run');

@@ -1,5 +1,5 @@
 import { genericConstructor } from '../type/constructor';
-import { Handler } from "./handler";
+import { Handler } from './handler';
 import { Service } from './service';
 
 export interface ApplicationConfig {

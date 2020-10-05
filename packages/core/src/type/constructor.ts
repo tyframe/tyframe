@@ -5,4 +5,4 @@ export type constructor = {
 
 export type genericConstructor<T> = {
     new (...args: any[]): T;
-}
+};

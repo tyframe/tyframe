@@ -6,7 +6,7 @@ export abstract class Handler {
     config: EventConfig[] = [];
 
     abstract handle(event: Event): void;
-    
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
     getServiceByType(type: any): Service {
         return this.services.filter((service: Service) => service instanceof type)[0];
