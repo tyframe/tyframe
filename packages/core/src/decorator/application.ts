@@ -1,5 +1,5 @@
-import { EventConfig } from './../interface/event-config';
-import { Handler } from './../interface/handler';
+import { EventConfig } from '../interface/event-config';
+import { Handler } from '../interface/handler';
 import { constructor, genericConstructor } from "../type/constructor";
 import { ApplicationConfig } from "../interface/application-config";
 import { Service } from '../interface/service';
@@ -8,7 +8,7 @@ export const Application = (config: ApplicationConfig): (<T>(target: genericCons
     return <T extends constructor>(target: T) => {
         return class extends target {
             services = config.services.map((service: genericConstructor<Service>): Service => new service());
-            handler = config.handler.map((handler: genericConstructor<Handler>): Handler => {
+            handlers = config.handlers.map((handler: genericConstructor<Handler>): Handler => {
                 const instance = new handler();
                 instance.services = this.services;
                 

@@ -3,7 +3,7 @@ import { Application, AbstractApplication } from "@tyframe/core";
 @Application({
     services: [
     ],
-    handler: [
+    handlers: [
     ],
 })
 export class App extends AbstractApplication {
