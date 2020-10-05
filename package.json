@@ -19,6 +19,8 @@
     "private": true,
     "scripts": {
         "bootstrap": "npm install && lerna bootstrap",
+        "build:all": "lerna run build",
+        "publish": "lerna publish",
         "eslint": "eslint . --ignore-path .gitignore --ext .ts,.js,.json",
         "markdownlint": "markdownlint \"**/*.md\" --ignore-path .gitignore"
     },
