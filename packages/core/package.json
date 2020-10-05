@@ -1,6 +1,6 @@
 {
   "name": "@tyframe/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "keywords": [
     "typescript",
     "web",
@@ -9,7 +9,7 @@
   "main": "dist/index",
   "types": "dist/index",
   "files": [
-      "dist"
+    "dist"
   ],
   "author": "GagaMen <12294922+GagaMen@users.noreply.github.com>",
   "homepage": "https://github.com/tyframe/tyframe/tree/master/packages/core#readme",
