@@ -9,9 +9,9 @@ module.exports = merge(basic, {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
-      },
-      plugins: [
-          new HtmlWebpackPlugin({
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
             title: 'Example App',
             templateContent: `
                 <html>
@@ -22,10 +22,10 @@ module.exports = merge(basic, {
                         <h1>Example App</h1>
                     </body>
                 </html>
-            `
+            `,
         }),
-      ],
-      resolve: {
-        plugins: [new TsconfigPathsPlugin()]
-      }
+    ],
+    resolve: {
+        plugins: [new TsconfigPathsPlugin()],
+    },
 });

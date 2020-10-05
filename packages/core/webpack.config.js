@@ -8,8 +8,8 @@ module.exports = merge(basic, {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
-      },
-      resolve: {
-        plugins: [new TsconfigPathsPlugin()]
-      }
+    },
+    resolve: {
+        plugins: [new TsconfigPathsPlugin()],
+    },
 });

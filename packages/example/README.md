@@ -1,4 +1,3 @@
-@tyframe/core
-=============
+# @tyframe/core
 
 tbd
