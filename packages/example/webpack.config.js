@@ -5,10 +5,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = merge(basic, {
-    entry: './src/index.ts',
+    entry: {
+        index: path.resolve(__dirname, 'src/index.ts')
+    },
     output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist/'),
+        filename: '[name].js',
     },
     plugins: [
         new HtmlWebpackPlugin({

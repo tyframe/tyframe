@@ -25,19 +25,16 @@
     "scripts": {
         "build": "npm run clean && npm run compile",
         "clean": "rm -rf ./dist",
-        "compile": "webpack --config webpack.config.js"
+        "compile": "tsc --project tsconfig.build.json"
     },
     "devDependencies": {
-        "terser-webpack-plugin": "^4.2.2",
         "ts-loader": "^8.0.4",
-        "tsconfig-paths": "^3.9.0",
-        "tsconfig-paths-webpack-plugin": "^3.3.0",
-        "typescript": "^4.0.3",
-        "webpack": "^4.44.2",
-        "webpack-cli": "^3.3.12",
-        "webpack-merge": "^5.1.4"
+        "tsconfig-paths": "^3.9.0"
     },
     "publishConfig": {
         "access": "public"
+    },
+    "dependencies": {
+        "typescript": "^4.0.3"
     }
 }
