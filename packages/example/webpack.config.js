@@ -1,10 +1,10 @@
 const path = require('path');
-const { merge } = require('webpack-merge');
-const basic = require('../../webpack.config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
-module.exports = merge(basic, {
+module.exports = {
+    mode: 'development',
+    devtool: 'inline-source-map',
     entry: {
         index: path.resolve(__dirname, 'src/index.ts')
     },
@@ -28,6 +28,21 @@ module.exports = merge(basic, {
         }),
     ],
     resolve: {
+        extensions: ['.ts', '.js'],
         plugins: [new TsconfigPathsPlugin()],
     },
-});
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                use: {
+                    loader: 'ts-loader',
+                    options: {
+                        configFile: 'tsconfig.build.json',
+                    },
+                },
+                exclude: /node_modules/,
+            },
+        ],
+    },
+};
