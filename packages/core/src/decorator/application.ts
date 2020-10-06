@@ -24,12 +24,47 @@ export const Application = (config: ApplicationConfig): (<T>(target: genericCons
                             return;
                         }
 
-                        if ('addEventListener' in configEntry.selector) {
-                            const selector = configEntry.selector as HTMLElement;
+                        if (configEntry.selector instanceof Window) {
+                            const selector = configEntry.selector;
                             configEntry.types.forEach((type) =>
                                 selector.addEventListener(type, instance.handle.bind(instance)),
                             );
+                            return;
                         }
+
+                        if (configEntry.selector instanceof Document) {
+                            if (configEntry.subSelector === undefined) {
+                                configEntry.types.forEach((type) =>
+                                    document.addEventListener(type, instance.handle.bind(instance)),
+                                );
+                                return;
+                            }
+
+                            const observer = new MutationObserver((mutationsList: Array<MutationRecord>): void => {
+                                for (const mutation of mutationsList) {
+                                    if (mutation.type === 'childList') {
+                                        mutation.addedNodes.forEach((node: Node) => {
+                                            const element = document.querySelector(configEntry.subSelector) as Node;
+                                            if (!node.isEqualNode(element)) {
+                                                return;
+                                            }
+
+                                            configEntry.types.forEach((type) =>
+                                                node.addEventListener(type, instance.handle.bind(instance)),
+                                            );
+                                        });
+                                    }
+                                }
+                            });
+
+                            observer.observe(selector, {
+                                subtree: true,
+                                childList: true,
+                            });
+                            return;
+                        }
+
+                        throw Error('The passed selector is not supported');
                     });
 
                     return instance;

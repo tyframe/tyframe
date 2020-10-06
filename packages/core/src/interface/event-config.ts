@@ -1,4 +1,5 @@
 export interface EventConfig {
-    selector: string | GlobalEventHandlers;
+    selector: string | Document | Window;
     types: string[];
+    subSelector?: string;
 }

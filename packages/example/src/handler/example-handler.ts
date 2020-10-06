@@ -4,6 +4,7 @@ import { Event, Handler } from '@tyframe/core';
     {
         selector: document,
         types: ['click'],
+        subSelector: 'button.test',
     },
     {
         selector: window,
@@ -16,6 +17,9 @@ import { Event, Handler } from '@tyframe/core';
 ])
 export class ExampleHandler extends Handler {
     handle(event: Event): void {
-        console.log(event.target);
+        const div = document.createElement('div');
+        div.classList.add('test');
+
+        document.body.append(div);
     }
 }

@@ -22,6 +22,7 @@ module.exports = {
                     </head>
                     <body>
                         <h1>Example App</h1>
+                        <button class="example">Example button</button>
                     </body>
                 </html>
             `,
