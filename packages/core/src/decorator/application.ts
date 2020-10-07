@@ -40,12 +40,22 @@ export const Application = (config: ApplicationConfig): (<T>(target: genericCons
                                 return;
                             }
 
+                            const elements = document.querySelectorAll<Element>(configEntry.subSelector);
+                            elements.forEach((element: Element) =>
+                                configEntry.types.forEach((type) =>
+                                    element.addEventListener(type, instance.handle.bind(instance)),
+                                ),
+                            );
+
                             const observer = new MutationObserver((mutationsList: Array<MutationRecord>): void => {
                                 for (const mutation of mutationsList) {
                                     if (mutation.type === 'childList') {
                                         mutation.addedNodes.forEach((node: Node) => {
-                                            const element = document.querySelector(configEntry.subSelector) as Node;
-                                            if (!node.isEqualNode(element)) {
+                                            if (
+                                                !(node instanceof Element) ||
+                                                !('matches' in node) ||
+                                                !node.matches(configEntry.subSelector as string)
+                                            ) {
                                                 return;
                                             }
 
@@ -57,7 +67,7 @@ export const Application = (config: ApplicationConfig): (<T>(target: genericCons
                                 }
                             });
 
-                            observer.observe(selector, {
+                            observer.observe(document, {
                                 subtree: true,
                                 childList: true,
                             });
