@@ -1,6 +1,6 @@
 {
     "name": "@tyframe/example",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "keywords": [
         "typescript",
         "web",
@@ -40,6 +40,6 @@
         "access": "public"
     },
     "dependencies": {
-        "@tyframe/core": "^0.3.0"
+        "@tyframe/core": "^0.4.0"
     }
 }
