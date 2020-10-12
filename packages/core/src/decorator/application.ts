@@ -3,6 +3,7 @@ import { Handler } from '../interface/handler';
 import { constructor, genericConstructor } from '../type/constructor';
 import { ApplicationConfig } from '../interface/application-config';
 import { Service } from '../interface/service';
+import { delegate } from '@tyframe/util';
 
 export const Application = (config: ApplicationConfig): (<T>(target: genericConstructor<T>) => void) => {
     return <T extends constructor>(target: T) => {
@@ -40,37 +41,16 @@ export const Application = (config: ApplicationConfig): (<T>(target: genericCons
                                 return;
                             }
 
-                            const elements = document.querySelectorAll<Element>(configEntry.subSelector);
-                            elements.forEach((element: Element) =>
-                                configEntry.types.forEach((type) =>
-                                    element.addEventListener(type, instance.handle.bind(instance)),
-                                ),
-                            );
-
-                            const observer = new MutationObserver((mutationsList: Array<MutationRecord>): void => {
-                                for (const mutation of mutationsList) {
-                                    if (mutation.type === 'childList') {
-                                        mutation.addedNodes.forEach((node: Node) => {
-                                            if (
-                                                !(node instanceof Element) ||
-                                                !('matches' in node) ||
-                                                !node.matches(configEntry.subSelector as string)
-                                            ) {
-                                                return;
-                                            }
-
-                                            configEntry.types.forEach((type) =>
-                                                node.addEventListener(type, instance.handle.bind(instance)),
-                                            );
-                                        });
-                                    }
-                                }
+                            configEntry.types.forEach((type) => {
+                                delegate(
+                                    document,
+                                    configEntry.subSelector ?? '',
+                                    type,
+                                    instance.handle.bind(instance),
+                                    false,
+                                );
                             });
 
-                            observer.observe(document, {
-                                subtree: true,
-                                childList: true,
-                            });
                             return;
                         }
 

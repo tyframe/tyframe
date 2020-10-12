@@ -35,6 +35,7 @@
         "access": "public"
     },
     "dependencies": {
+        "@tyframe/util": "^0.3.0",
         "typescript": "^4.0.3"
     }
 }
