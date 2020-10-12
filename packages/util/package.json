@@ -1,0 +1,33 @@
+{
+    "name": "@tyframe/util",
+    "version": "0.3.0",
+    "keywords": [
+        "typescript",
+        "web",
+        "framework"
+    ],
+    "main": "dist/index",
+    "types": "dist/index",
+    "files": [
+        "dist"
+    ],
+    "author": "GagaMen <12294922+GagaMen@users.noreply.github.com>",
+    "homepage": "https://github.com/tyframe/tyframe/tree/master/packages/util#readme",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tyframe/tyframe.git",
+        "directory": "packages/util"
+    },
+    "bugs": {
+        "url": "https://github.com/tyframe/tyframe/issues"
+    },
+    "scripts": {
+        "build": "npm run clean && npm run compile",
+        "clean": "rm -rf ./dist",
+        "compile": "tsc --project tsconfig.build.json"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
