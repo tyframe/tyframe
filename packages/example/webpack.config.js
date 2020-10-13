@@ -20,7 +20,7 @@ module.exports = {
                     <head>
                         <title>Example App</title>
                     </head>
-                    <body>
+                    <body class="body">
                         <h1>Example App</h1>
                         <button class="example">Example button</button>
                         <button class="test">Initial Test</button>

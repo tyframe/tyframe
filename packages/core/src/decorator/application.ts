@@ -15,46 +15,28 @@ export const Application = (config: ApplicationConfig): (<T>(target: genericCons
                     instance.services = this.services;
 
                     instance.config.forEach((configEntry: EventConfig): void => {
-                        if (typeof configEntry.selector === 'string') {
-                            const elements = document.querySelectorAll(configEntry.selector);
-                            elements.forEach((element) =>
-                                configEntry.types.forEach((type) =>
-                                    element.addEventListener(type, instance.handle.bind(instance)),
-                                ),
-                            );
-                            return;
-                        }
-
-                        if (configEntry.selector instanceof Window) {
-                            const selector = configEntry.selector;
-                            configEntry.types.forEach((type) =>
-                                selector.addEventListener(type, instance.handle.bind(instance)),
-                            );
-                            return;
-                        }
-
-                        if (configEntry.selector instanceof Document) {
-                            if (configEntry.subSelector === undefined) {
-                                configEntry.types.forEach((type) =>
-                                    document.addEventListener(type, instance.handle.bind(instance)),
-                                );
-                                return;
-                            }
-
-                            configEntry.types.forEach((type) => {
+                        configEntry.types.forEach((type: string) => {
+                            if (configEntry.subSelector !== undefined && configEntry.subSelector !== null) {
                                 delegate(
-                                    document,
-                                    configEntry.subSelector ?? '',
+                                    configEntry.selector,
+                                    configEntry.subSelector,
                                     type,
                                     instance.handle.bind(instance),
                                     false,
                                 );
-                            });
+                                return;
+                            }
 
-                            return;
-                        }
+                            if (typeof configEntry.selector === 'string') {
+                                const elements = document.querySelectorAll(configEntry.selector);
+                                elements.forEach((element: Element) =>
+                                    element.addEventListener(type, instance.handle.bind(instance)),
+                                );
+                                return;
+                            }
 
-                        throw Error('The passed selector is not supported');
+                            configEntry.selector.addEventListener(type, instance.handle.bind(instance));
+                        });
                     });
 
                     return instance;

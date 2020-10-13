@@ -11,7 +11,8 @@ import { Event, Handler } from '@tyframe/core';
         types: ['scroll'],
     },
     {
-        selector: '.example',
+        selector: '.body',
+        subSelector: '.example',
         types: ['click', 'touch'],
     },
 ])
