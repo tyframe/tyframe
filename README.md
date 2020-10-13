@@ -7,6 +7,7 @@
 ## Available packages
 
 -   [@tyframe/core](packages/core/README.md)
+-   [@tyframe/util](packages/util/README.md)
 -   [@tyframe/example](packages/example/README.md)
 
 ## Getting started
