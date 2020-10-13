@@ -21,8 +21,10 @@ Add an event delegation to document.
 delegate(
     document,
     '.test',
-    'click,
-    (event: Event): void => { console.log('click')},
+    'click',
+    (event: Event): void => {
+        console.log('click');
+    },
     false,
 );
 ```
