@@ -1,5 +1,5 @@
-import { Service } from '../interface/service';
-import { Handler } from '../interface/handler';
+import { Service } from '../model/service';
+import { Handler } from '../model/handler';
 
 export class AbstractApplication {
     protected services: Service[] = [];

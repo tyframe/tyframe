@@ -3,9 +3,9 @@ export * from './core/abstract-application';
 export * from './decorator/application';
 export * from './decorator/event';
 
-export * from './interface/application-config';
-export * from './interface/event-config';
-export * from './interface/handler';
-export * from './interface/service';
+export * from './model/application-config';
+export * from './model/event-config';
+export * from './model/handler';
+export * from './model/service';
 
 export * from './type/constructor';

@@ -1,8 +1,8 @@
-import { EventConfig } from '../interface/event-config';
-import { Handler } from '../interface/handler';
+import { EventConfig } from '../model/event-config';
+import { Handler } from '../model/handler';
 import { constructor, genericConstructor } from '../type/constructor';
-import { ApplicationConfig } from '../interface/application-config';
-import { Service } from '../interface/service';
+import { ApplicationConfig } from '../model/application-config';
+import { Service } from '../model/service';
 import { delegate } from '@tyframe/util';
 
 export const Application = (config: ApplicationConfig): (<T>(target: genericConstructor<T>) => void) => {
