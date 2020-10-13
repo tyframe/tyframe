@@ -22,6 +22,7 @@ module.exports = {
                     </head>
                     <body class="body">
                         <h1>Example App</h1>
+                        <button class="add">Add test button only once</button>
                         <button class="example">Example button</button>
                         <button class="test">Initial Test</button>
                     </body>

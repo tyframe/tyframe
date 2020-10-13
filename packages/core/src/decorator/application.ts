@@ -22,7 +22,7 @@ export const Application = (config: ApplicationConfig): (<T>(target: genericCons
                                     configEntry.subSelector,
                                     type,
                                     instance.handle.bind(instance),
-                                    false,
+                                    configEntry.options,
                                 );
                                 return;
                             }
@@ -30,12 +30,16 @@ export const Application = (config: ApplicationConfig): (<T>(target: genericCons
                             if (typeof configEntry.selector === 'string') {
                                 const elements = document.querySelectorAll(configEntry.selector);
                                 elements.forEach((element: Element) =>
-                                    element.addEventListener(type, instance.handle.bind(instance)),
+                                    element.addEventListener(type, instance.handle.bind(instance), configEntry.options),
                                 );
                                 return;
                             }
 
-                            configEntry.selector.addEventListener(type, instance.handle.bind(instance));
+                            configEntry.selector.addEventListener(
+                                type,
+                                instance.handle.bind(instance),
+                                configEntry.options,
+                            );
                         });
                     });
 

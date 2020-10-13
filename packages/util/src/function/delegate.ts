@@ -28,15 +28,13 @@ function _delegate(
     selector: string,
     type: string,
     callback: (event: Event) => void,
-    useCapture: boolean,
+    options?: boolean | AddEventListenerOptions,
 ): Delegate {
     const listenerFn = listener(element, selector, type, callback);
-    element.addEventListener(type, listenerFn, useCapture);
+    element.addEventListener(type, listenerFn, options);
 
     return {
-        destroy: function () {
-            element.removeEventListener(type, listenerFn, useCapture);
-        },
+        destroy: () => element.removeEventListener(type, listenerFn, options),
     };
 }
 
@@ -45,14 +43,14 @@ export function delegate(
     selector: string,
     type: string,
     callback: (event: Event) => void,
-    useCapture: boolean,
+    options?: boolean | AddEventListenerOptions,
 ): Delegate | Delegate[] {
     if (elements instanceof Element) {
-        return _delegate(elements, selector, type, callback, useCapture);
+        return _delegate(elements, selector, type, callback, options);
     }
 
     if (elements instanceof Document) {
-        return _delegate(document, selector, type, callback, useCapture);
+        return _delegate(document, selector, type, callback, options);
     }
 
     // Handle Selector-based usage
@@ -63,7 +61,7 @@ export function delegate(
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return
     return [...elements].map(
         (element: Element): Delegate => {
-            return _delegate(element, selector, type, callback, useCapture);
+            return _delegate(element, selector, type, callback, options);
         },
     );
 }

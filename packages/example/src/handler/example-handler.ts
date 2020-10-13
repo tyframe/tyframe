@@ -15,6 +15,13 @@ import { Event, Handler } from '@tyframe/core';
         subSelector: '.example',
         types: ['click', 'touch'],
     },
+    {
+        selector: '.add',
+        types: ['click'],
+        options: {
+            once: true,
+        },
+    },
 ])
 export class ExampleHandler extends Handler {
     handle(event: Event): void {
@@ -22,7 +29,7 @@ export class ExampleHandler extends Handler {
 
         const element = event.target;
         if (element instanceof Element) {
-            if (element.classList.contains('example')) {
+            if (element.classList.contains('example') || element.classList.contains('add')) {
                 const button = document.createElement('button');
                 button.classList.add('test');
                 button.textContent = 'TEST';
