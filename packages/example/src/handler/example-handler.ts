@@ -1,4 +1,5 @@
 import { Event, Handler } from '@tyframe/core';
+import { siblings } from '@tyframe/util';
 
 @Event([
     {
@@ -38,7 +39,8 @@ export class ExampleHandler extends Handler {
             }
 
             if (element.classList.contains('test')) {
-                console.log('I am a test button!');
+                const siblingElements = siblings(element, '.test');
+                console.log(siblingElements);
             }
         }
     }

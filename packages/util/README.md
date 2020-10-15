@@ -8,7 +8,7 @@ Returns first parent element of given element, which matches the given selector.
 
 ```js
 const element = document.querySelector('.test');
-closest(element, '.parent');
+const closestElement = closest(element, '.parent');
 ```
 
 ### delegate
@@ -27,4 +27,13 @@ delegate(
     },
     false,
 );
+```
+
+### siblings
+
+Find all siblings of given element, optionally filtered by a selector.
+
+```js
+const element = document.querySelector('button.test');
+const siblings = siblings(element, '.test');
 ```
