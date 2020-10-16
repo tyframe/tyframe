@@ -1,5 +1,5 @@
 import { Event, Handler } from '@tyframe/core';
-import { siblings } from '@tyframe/util';
+import { siblings, trigger } from '@tyframe/util';
 
 @Event([
     {
@@ -23,6 +23,10 @@ import { siblings } from '@tyframe/util';
             once: true,
         },
     },
+    {
+        selector: '.trigger',
+        types: ['click'],
+    },
 ])
 export class ExampleHandler extends Handler {
     handle(event: Event): void {
@@ -30,6 +34,13 @@ export class ExampleHandler extends Handler {
 
         const element = event.target;
         if (element instanceof Element) {
+            if (element.classList.contains('trigger')) {
+                const exampleButton = document.querySelector('.example');
+                if (exampleButton !== null) {
+                    trigger(exampleButton, 'click');
+                }
+            }
+
             if (element.classList.contains('example') || element.classList.contains('add')) {
                 const button = document.createElement('button');
                 button.classList.add('test');

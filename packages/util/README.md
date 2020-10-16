@@ -37,3 +37,14 @@ Find all siblings of given element, optionally filtered by a selector.
 const element = document.querySelector('button.test');
 const siblings = siblings(element, '.test');
 ```
+
+### trigger
+
+Execute all handlers and behaviors attached to the matched elements for the given event type.
+
+```js
+const exampleButton = document.querySelector('.example');
+if (exampleButton !== null) {
+    trigger(exampleButton, 'click');
+}
+```
