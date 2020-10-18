@@ -4,7 +4,7 @@ module.exports = {
     overrides: [
         {
             files: ['*.ts'],
-            excludedFiles: '*.d.ts',
+            excludedFiles: ['*.d.ts', '*.spec.ts'],
             parser: '@typescript-eslint/parser',
             plugins: ['@typescript-eslint'],
             extends: [
@@ -28,6 +28,13 @@ module.exports = {
                 'import/no-cycle': 'error',
             },
         },
+        {
+            files: ['*.spec.ts'],
+            extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+            env: {
+                'jest/globals': true
+            }
+        }
         {
             files: ['*.js'],
             extends: ['plugin:prettier/recommended'],
