@@ -6,7 +6,7 @@ function getPreviousSiblings(element: Node, nodeName: string, selector?: string)
 
     if (
         sibling.nodeName !== nodeName ||
-        !(selector !== undefined && sibling instanceof Element && sibling.matches(selector))
+        (selector !== undefined && sibling instanceof Element && !sibling.matches(selector))
     ) {
         return [...getPreviousSiblings(sibling, nodeName, selector)];
     }
@@ -22,7 +22,7 @@ function getNextSiblings(element: Node, nodeName: string, selector?: string): No
 
     if (
         sibling.nodeName !== nodeName ||
-        !(selector !== undefined && sibling instanceof Element && sibling.matches(selector))
+        (selector !== undefined && sibling instanceof Element && !sibling.matches(selector))
     ) {
         return [...getNextSiblings(sibling, nodeName, selector)];
     }
