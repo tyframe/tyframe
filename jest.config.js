@@ -7,7 +7,7 @@ module.exports = {
     verbose: true,
     collectCoverage: true,
     coverageReporters: ['lcov', 'json'],
-    collectCoverageFrom: ['packages/**/src/**'],
+    collectCoverageFrom: ['packages/**/src/**', '!packages/**/src/index.ts'],
     // coverageThreshold: {
     //     global: {
     //         branches: 90,
