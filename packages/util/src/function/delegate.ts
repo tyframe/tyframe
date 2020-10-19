@@ -39,7 +39,7 @@ function _delegate(
 }
 
 export function delegate(
-    elements: Document | Window | Element | Element[] | NodeListOf<Element> | string,
+    elements: Document | Element | Element[] | NodeListOf<Element> | string,
     selector: string,
     type: string,
     callback: (event: Event) => void,
