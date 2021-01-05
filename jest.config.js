@@ -2,7 +2,7 @@ module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
     moduleNameMapper: {
-        '^@tyframe/(.*)$': '<rootDir>/$1/src/',
+        '^@tyframe/(.*)$': '<rootDir>/packages/$1/src/',
     },
     verbose: true,
     collectCoverage: true,
