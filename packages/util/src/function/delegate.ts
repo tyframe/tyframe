@@ -5,7 +5,7 @@ interface Delegate {
 }
 
 function listener(
-    element: Element | Document,
+    element: Element | Document | Window,
     selector: string,
     type: string,
     callback: (event: Event) => void,
@@ -24,7 +24,7 @@ function listener(
 }
 
 function _delegate(
-    element: Element | Document,
+    element: Element | Document | Window,
     selector: string,
     type: string,
     callback: (event: Event) => void,
@@ -53,13 +53,17 @@ export function delegate(
         return _delegate(document, selector, type, callback, options);
     }
 
+    if (elements instanceof Window) {
+        return _delegate(window, selector, type, callback, options);
+    }
+
     // Handle Selector-based usage
     if (typeof elements === 'string') {
         elements = document.querySelectorAll(elements);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-return
-    return [...elements].map(
+    return Array.from(elements).map(
         (element: Element): Delegate => {
             return _delegate(element, selector, type, callback, options);
         },
