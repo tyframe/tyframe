@@ -1,3 +1,4 @@
+import { AbstractApplication } from './../../src/core/abstract-application';
 import { Event } from './../../src/decorator/event';
 import { Service } from '../../src/model/service';
 import { Handler } from '../../src/model/handler';
@@ -15,7 +16,9 @@ describe('application', () => {
         }
     };
 
-    class DummyService extends Service {};
+    class FirstDummyService extends Service {};
+    class SecondDummyService extends Service {};
+
     @Event([
         {
             selector: '.test',
@@ -36,8 +39,8 @@ describe('application', () => {
     };
 
     @Application({
-        services: [DummyService],
         handlers: [DummyHandler],
+        services: [FirstDummyService, SecondDummyService],
     })
     class App {
         services: Service[] = [];
@@ -57,7 +60,7 @@ describe('application', () => {
     });
 
     it('with registered DummyService should create an instance by initialation', async () => {
-        const service = new DummyService();
+        const service = new FirstDummyService();
 
         expect(instance.services).toEqual([service]);
     });
@@ -93,5 +96,15 @@ describe('application', () => {
         
         // todo: check why mock functions don't work
         expect(button?.classList.contains('success')).toBe(true);
+    });
+
+    it('with registered FirstDummyHandler and SecondDummyHandler should add different service to each other', async () => {
+        const firstService = instance.services.filter((entry) => entry instanceof FirstDummyService)[0] as FirstDummyService;
+        const secondService = instance.services.filter((entry) => entry instanceof SecondDummyService)[0] as SecondDummyService;
+
+        expect(firstService.services.length).toBe(1);
+        expect(firstService.services[0]).toBeInstanceOf(SecondDummyService);
+        expect(secondService.services.length).toBe(1);
+        expect(secondService.services[0]).toBeInstanceOf(FirstDummyService);
     });
 });

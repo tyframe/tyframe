@@ -7,8 +7,12 @@ import { delegate } from '@tyframe/util';
 
 export const Application = (config: ApplicationConfig): (<T>(target: genericConstructor<T>) => void) => {
     return <T extends constructor>(target: T) => {
+        const services = config.services.map((service: genericConstructor<Service>): Service => new service());
+        // add all different services to each service
+        services.forEach((service: Service) => service.services = services.filter((entry) => !Object.is(service, entry)));
+
         return class extends target {
-            services = config.services.map((service: genericConstructor<Service>): Service => new service());
+            services = services;
             handlers = config.handlers.map(
                 (handler: genericConstructor<Handler>): Handler => {
                     const instance = new handler();

@@ -1,3 +1,4 @@
+import { ExampleService } from './../service/example-service';
 import { Event, Handler } from '@tyframe/core';
 import { siblings, trigger } from '@tyframe/util';
 
@@ -29,8 +30,24 @@ import { siblings, trigger } from '@tyframe/util';
     },
 ])
 export class ExampleHandler extends Handler {
+    exampleService: ExampleService | null = null;
+
+    protected initialize(): void {
+        if (this.exampleService !== null) {
+            return;
+        }
+
+        this.exampleService = this.getServiceByType(ExampleService) as ExampleService;
+        if (this.exampleService === null) {
+            throw Error('Initialization of ExampleService fails! Some property could not be set.');
+        }
+    }
+
     handle(event: Event): void {
         console.log('ExampleHandler is executed');
+        this.initialize();
+
+        this.exampleService?.test();
 
         const element = event.target;
         if (element instanceof Element) {

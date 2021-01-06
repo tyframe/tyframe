@@ -27,8 +27,8 @@
         "build:watch": "tsc --watch --project tsconfig.build.json",
         "clean": "rm -rf ./dist",
         "compile": "tsc --project tsconfig.build.json",
-        "test": "jest --config ../../jest.config.js",
-        "test:watch": "jest --watchAll --config ../../jest.config.js"
+        "test": "jest --clearCache --config ../../jest.config.js",
+        "test:watch": "jest --clearCache --watchAll --config ../../jest.config.js"
     },
     "publishConfig": {
         "access": "public"
